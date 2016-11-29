@@ -1,4 +1,4 @@
-# ${1:Python Under Armour SDK}
+# Python Under Armour SDK
 
 Python library that can be used to connect and interact with Under Armour API.
 ## Installation
