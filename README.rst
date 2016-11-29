@@ -10,35 +10,46 @@ TODO: Describe the installation process
 
 ----
 
+**Requirements**
+
+* Python 2.7+
+* `requests-oauthlib`_ (always)
+* `requests`_ (to create the documention)
+
+.. _requests-oauthlib: https://pypi.python.org/pypi/requests-oauthlib
+.. _requests: https://pypi.python.org/pypi/requests
+
+----
+
 **Usage**
+::
+  from UnderArmour import UAOauth2Client, UA
+  uaOauthObject = UAOauth2Client(client_id = ua_key, client_secret = ua_secret)
+  # client_id, and client_secret are provided by Under Armour
+  # when registering your application
 
-TODO: Write usage instructions
+  url, state = uaOauthObject.authorize_token_url(ua_callback_url)
+  # Let the user open the *url*. Save the state to the database
+  # call_back_url is the url that you set when registering your app.
+  # The user will be redirected to it after giving the app access
+  # to their account. Under Armour will do a get request
+  # to that url with a code. The code is used to get the token.
 
-----
+  tokenInfo = uaOauthObject.fetch_access_token(code)
 
-**Contributing**
+  # tokenInfo contains all the info needed (access token, refresh token, etc.)
+  # When getting the token info from Under Armour, save it to the database for later use.
 
-1. Fork it!
+  uaObject = UA(client_id = ua_key, client_secret = ua_secret, access_token=access_token)
+  # Call the *uaObject* methods to interact with with Under Armour API.
+  # Example:
+  profile = uaObject.user_profile_get(user_id=ua_user_id)
 
-2. Create your feature branch: `git checkout -b my-new-feature`
+  # For any methods that are not included in the library:
+  result = uaObject.make_request(url, method, data)
 
-3. Commit your changes: `git commit -am 'Add some feature'`
-
-4. Push to the branch: `git push origin my-new-feature`
-
-5. Submit a pull request :D
-
-----
-
-**History**
-
-TODO: Write history
-
-----
-
-**Credits**
-
-TODO: Write credits
+  # The methods and *data* format could be found at:
+  # `https://developer.underarmour.com/docs/` 
 
 ----
 
