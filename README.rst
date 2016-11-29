@@ -1,20 +1,20 @@
  Python Under Armour SDK
-========================
+ =======================
 Python library that can be used to connect and interact with Under Armour API.
-** Installation **
+ **Installation**
 TODO: Describe the installation process
-** Usage **
+ **Usage**
 TODO: Write usage instructions
-** Contributing **
+ **Contributing**
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
-** History **
+ **History**
 TODO: Write history
-** Credits **
+ **Credits**
 TODO: Write credits
-** License  **
+ **License**
 MIT License
 see: 'https://github.com/igorfala/python-under-armour/blob/master/LICENSE'
