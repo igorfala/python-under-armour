@@ -31,7 +31,7 @@ client_id, and client_secret are provided by Under Armour when registering your 
 Let the user open the *url*. Save the state to the database
 call_back_url is the url that you set when registering your app.
 The user will be redirected to it after giving the app access to
-their account. Under Armour will do a get requestto that url
+their account. Under Armour will do a get request to that url
 with a code. The code is used to get the token.
 ::
   tokenInfo = uaOauthObject.fetch_access_token(code)
@@ -50,7 +50,7 @@ For any methods that are not included in the library:
   result = uaObject.make_request(url, method, data)
 
 The methods and *data* format could be found at:
-`https://developer.underarmour.com/docs/` 
+`https://developer.underarmour.com/docs/`
 
 ----
 

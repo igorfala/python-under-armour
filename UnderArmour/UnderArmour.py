@@ -4,6 +4,7 @@ except ImportError:
     # Python 2.x
     from urllib import urlencode
 
+from .Exceptions import *
 from requests_oauthlib import OAuth2, OAuth2Session
 import datetime, json, requests
 class UAOauth2Client(object):
