@@ -13,8 +13,8 @@ TODO: Describe the installation process
 **Requirements**
 
 * Python 2.7+
-* `requests-oauthlib`_ (always)
-* `requests`_ (to create the documention)
+* `requests-oauthlib`_ (to authenticate)
+* `requests`_ (to make requests)
 
 .. _requests-oauthlib: https://pypi.python.org/pypi/requests-oauthlib
 .. _requests: https://pypi.python.org/pypi/requests
