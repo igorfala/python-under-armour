@@ -4,7 +4,6 @@ except ImportError:
     # Python 2.x
     from urllib import urlencode
 
-from .Exceptions import *
 from requests_oauthlib import OAuth2, OAuth2Session
 import datetime, json, requests
 class UAOauth2Client(object):
@@ -18,8 +17,7 @@ class UAOauth2Client(object):
                  access_token=None, refresh_token=None,
                  *args, **kwargs):
         """
-        Create a UAOauth2Client object. Specify the first 7 parameters if
-        you have them to access user data. Specify just the first 2 parameters
+        Create a UAOauth2Client object. Specify just the first 2 parameters
         to start the setup for user authorization.
             - client_id, client_secret are in the app configuration page
             https://developer.underarmour.com/apps/
@@ -62,16 +60,10 @@ class UAOauth2Client(object):
             raise HTTPForbidden(response.json())
         elif response.status_code == 404:
             raise HTTPNotFound(response.json())
-        elif response.status_code == 409:
-            raise HTTPConflict(response.json())
-        elif response.status_code == 429:
-            exc = HTTPTooManyRequests(response.json())
-            exc.retry_after_secs = int(response.headers['Retry-After'])
-            raise exc
+        elif response.status_code == 405:
+            raise HTTPMethodNotAllowed(response.json())
         elif response.status_code >= 500:
             raise HTTPServerError(response.json())
-        elif response.status_code >= 400:
-            raise HTTPBadRequest(response.json())
         return response.json()
 
     def authorize_token_url(self, redirect_uri=None, **kwargs):
