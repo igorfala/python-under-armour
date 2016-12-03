@@ -6,7 +6,12 @@ Python library that can be used to connect and interact with Under Armour API.
 
 **Installation**
 
-TODO: Describe the installation process
+Python2
+::
+  pip install UnderArmour
+Python3:
+::
+  pip3 install UnderArmour
 
 ----
 
