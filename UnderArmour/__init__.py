@@ -35,9 +35,9 @@ The methods and data format could be found at:
 https://developer.underarmour.com/docs/
 
 """
-
+from .Exceptions import *
 from .UnderArmour import UA, UAOauth2Client
 # Meta info
-__version__ = "0.1.0"
+__version__ = "0.1.2"
 __author__ = "Igor Fala"
 __license__ = 'MIT'

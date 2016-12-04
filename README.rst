@@ -6,7 +6,7 @@ Python library that can be used to connect and interact with Under Armour API.
 
 **Installation**
 
-Python2
+Python2:
 ::
   pip install UnderArmour
 Python3:
@@ -33,7 +33,7 @@ Python3:
 client_id, and client_secret are provided by Under Armour when registering your application
 ::
   url, state = uaOauthObject.authorize_token_url(ua_callback_url)
-Let the user open the *url*. Save the state to the database
+Let the user open the *url*. Save the *state* to the database.
 call_back_url is the url that you set when registering your app.
 The user will be redirected to it after giving the app access to
 their account. Under Armour will do a get request to that url
@@ -45,7 +45,7 @@ tokenInfo contains all the info needed (access token, refresh token, etc.)
 When getting the token info from Under Armour, save it to the database for later use.
 ::
   uaObject = UA(client_id = ua_key, client_secret = ua_secret, access_token=access_token)
-Call the *uaObject* methods to interact with with Under Armour API.
+Call the *uaObject* methods to interact with Under Armour API.
 Example:
 ::
   profile = uaObject.user_profile_get(user_id=ua_user_id)

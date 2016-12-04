@@ -5,6 +5,7 @@ except ImportError:
     from urllib import urlencode
 
 from requests_oauthlib import OAuth2, OAuth2Session
+from UnderArmour.Exceptions import *
 import datetime, json, requests
 class UAOauth2Client(object):
     API_VERSION = 7.1
@@ -40,7 +41,6 @@ class UAOauth2Client(object):
             data = {}
         if not method:
             method = 'post' if data else 'get'
-        print(method)
         headers = {"Authorization": "Bearer {0}".format(self.token.get('access_token')),
                    'Api-Key': self.client_id,
                    "Content-Type": "application/json"}
