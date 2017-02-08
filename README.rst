@@ -63,4 +63,4 @@ The methods and *data* format could be found at:
 
 MIT License
 
-see: 'https://github.com/igorfala/python-under-armour/blob/master/LICENSE'
+see: `https://github.com/igorfala/python-under-armour/blob/master/LICENSE`

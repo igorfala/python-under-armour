@@ -71,7 +71,6 @@ class UAOauth2Client(object):
         authorization to look at their data.  Then redirect the user to that
         URL, open their browser to it, or tell them to copy the URL into their
         browser.
-            - scope: pemissions that that are being requested [default ask all]
             - redirect_uri: url to which the response will posted
                             required only if your app does not have one
             for more info see https://developer.underarmour.com/docs/v71_OAuth_2_Intro
