@@ -4,7 +4,7 @@ except ImportError:
     # Python 2.x
     from urllib import urlencode
 
-from requests_oauthlib import OAuth2, OAuth2Session
+from requests_oauthlib import  OAuth2Session
 from UnderArmour.Exceptions import *
 import datetime, json, requests
 class UAOauth2Client(object):
@@ -31,7 +31,6 @@ class UAOauth2Client(object):
             'access_token': access_token,
             'refresh_token': refresh_token
         }
-        self.oauth = OAuth2Session(client_id)
 
     def make_request(self, url, data=None, method=None, **kwargs):
         """
@@ -80,10 +79,8 @@ class UAOauth2Client(object):
 
         params = {"redirect_uri": redirect_uri}
         authorization_url = "%s%s" % (self.AUTHORIZE_ENDPOINT, urlencode(params))
-
-        out = self.oauth.authorization_url(authorization_url, **kwargs)
-
-        #removing state param
+        oauth = OAuth2Session(self.client_id) # creating session
+        out = oauth.authorization_url(authorization_url, **kwargs)
 
         return(out)
 
