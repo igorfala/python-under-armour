@@ -48,21 +48,21 @@ class UAOauth2Client(object):
                 response = getattr(requests, method)(url=url, headers=headers)
             else:
                 response = getattr(requests, method)(url=url, headers=headers, data=data)
-        except HTTPUnauthorized as e:
+        except HTTP_401_UNAUTHORIZED as e:
             # Check if needs_refresh in response,
             #then refresh token from outside and try again.
             response = {'needs_refresh': 'Please refresh the token'}
 
         if response.status_code == 401:
-            raise HTTPUnauthorized(response.json())
+            raise HTTP_401_UNAUTHORIZED(response.json())
         elif response.status_code == 403:
-            raise HTTPForbidden(response.json())
+            raise HTTP_403_FORBIDDEN(response.json())
         elif response.status_code == 404:
-            raise HTTPNotFound(response.json())
+            raise HTTP_404_NOT_FOUND(response.json())
         elif response.status_code == 405:
-            raise HTTPMethodNotAllowed(response.json())
+            raise HTTP_405_METHOD_NOT_ALLOWED(response.json())
         elif response.status_code >= 500:
-            raise HTTPServerError(response.json())
+            raise HTTP_500_INTERNAL_SERVER_ERROR(response.json())
         return response.json()
 
     def authorize_token_url(self, redirect_uri=None, **kwargs):
