@@ -1,7 +1,7 @@
 chardet==2.3.0
 colorama==0.3.3
 command-not-found==0.3
-html5lib==0.999
+html5lib==0.999999999
 language-selector==0.1
 oauthlib==2.0.0
 pygobject==3.16.2
